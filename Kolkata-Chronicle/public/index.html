@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Kolkata Chronicle – Time-Travel Engine</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+  </head>
+  <body>
+    <div id="introScreen">
+      <img src="/assets/logo.png" alt="Logo" />
+      <h1>Kolkata Time Travel Engine</h1>
+      <p>"Travel Through Time-From Heritage to Modern Kolkata"</p>
+    </div>
+
+    <header class="site-header">
+      <div class="brand">
+        <img id="logo" src="/assets/logo.png" alt="Kolkata Chronicle Logo" />
+        <div class="brand-text">
+          <h1>Kolkata Chronicle — Time-Travel Engine</h1>
+          <p class="subtitle">
+            Travel Through Time — From Heritage to Modern Kolkata
+          </p>
+        </div>
+      </div>
+
+      <nav class="site-nav">
+        <a href="#home" class="nav-link">Home</a>
+        <a href="#time-travel" class="nav-link">Time Travel</a>
+        <a href="#gallery" class="nav-link">Gallery</a>
+        <a href="#stories" class="nav-link">Stories</a>
+        <a href="#map" class="nav-link">Map</a>
+        <a href="#about" class="nav-link">About</a>
+      </nav>
+    </header>
+
+    <main id="home" class="hero">
+      <div class="hero-inner">
+        <h2>Kolkata Chronicle: Time-Travel Engine</h2>
+        <p class="lead">
+          Step inside the city’s memory — explore historic streets with visual
+          reconstructions and ambient soundscapes.
+        </p>
+        <div class="hero-actions">
+          <a href="#time-travel" class="btn-primary"
+            >Get Started — Time Travel</a
+          >
+        </div>
+
+        <div class="preview-grid" id="previewGrid">
+          <!-- small preview buttons will be populated by JS -->
+        </div>
+      </div>
+    </main>
+
+    <section id="time-travel" class="panel container">
+      <h2>Historic Scene Generator</h2>
+
+      <div class="control-row">
+        <label
+          >Choose Location:
+          <select id="locationSelect">
+            <option>-- Select location --</option>
+          </select>
+        </label>
+
+        <label
+          >Year: <span id="yearValue">1950</span>
+          <input
+            id="yearSlider"
+            type="range"
+            min="1900"
+            max="1990"
+            step="1"
+            value="1950"
+          />
+        </label>
+      </div>
+
+      <div class="control-row">
+        <div class="sound-controls">
+          <button id="playPauseBtn" class="btn">▶ Play</button>
+          <button id="muteBtn" class="btn">🔈 Mute</button>
+          <label class="volume"
+            >Volume
+            <input
+              id="volumeSlider"
+              type="range"
+              min="0"
+              max="1"
+              step="0.01"
+              value="0.6"
+          /></label>
+          <label class="loop">
+            <input id="loopCheck" type="checkbox" /> Loop Sound</label
+          >
+        </div>
+
+        <button id="generateBtn" class="btn-primary">
+          Generate Historic Scene
+        </button>
+      </div>
+
+      <div class="split-view">
+        <figure class="card img-card">
+          <h3>Old Kolkata</h3>
+          <img
+            id="oldImg"
+            alt="Old view"
+            src="/assets/fallback/historical.jpg"
+          />
+        </figure>
+        <figure class="card img-card">
+          <h3>Modern Kolkata</h3>
+          <img
+            id="modernImg"
+            alt="Modern view"
+            src="/assets/fallback/modern.jpg"
+          />
+        </figure>
+      </div>
+
+      <div class="card narrative">
+        <h3>Historical Story</h3>
+        <pre id="storyText">
+Select a location & year, then click Generate to see the story and timeline.</pre
+        >
+      </div>
+    </section>
+
+    <section id="gallery" class="panel container">
+      <h2>Gallery</h2>
+      <div id="galleryGrid" class="gallery-grid"></div>
+    </section>
+
+    <section id="stories" class="panel container">
+      <h2>All Stories</h2>
+      <div id="storiesList" class="stories-list">Loading…</div>
+    </section>
+
+    <section id="map-section" class="panel container">
+      <h2>Map</h2>
+      <div class="map-wrapper">
+        <div id="map"></div>
+      </div>
+    </section>
+    <section id="about" class="panel container">
+      <h2>About Kolkata Chronicle</h2>
+
+      <div class="about-section">
+        <p>
+          <strong>Kolkata Chronicle</strong> is an immersive heritage platform
+          that allows you to travel through time and visually experience how
+          Kolkata evolved from 1900 to 1990. It blends history with technology
+          in a fun and interactive way.
+        </p>
+
+        <p>
+          With our split-view engine and time slider, you can compare
+          <strong>Old Kolkata vs Modern Kolkata</strong> instantly. The platform
+          also features ambient soundscapes, historical stories, and fully
+          curated timelines of iconic locations.
+        </p>
+
+        <ul>
+          <li>View historic reconstruction of 20+ famous places</li>
+          <li>Hear tram, river, temple and street soundscapes</li>
+          <li>Read time-based identity, uniqueness & narratives</li>
+          <li>Explore with map navigation and auto-time-travel buttons</li>
+        </ul>
+
+        <p style="margin-top: 1rem">
+          This project is made for people who love Kolkata — heritage
+          enthusiasts, travellers, students and future storytellers of the city.
+        </p>
+        <p
+          style="
+            margin-top: 1.4rem;
+            text-align: center;
+            font-size: 15px;
+            color: var(--gold);
+            letter-spacing: 0.5px;
+          "
+        >
+          Made with ❤️ by <strong>Team Navyasetu</strong>
+        </p>
+      </div>
+    </section>
+
+    <footer class="site-footer">
+      <small>© Kolkata Chronicle — Time-Travel Engine</small>
+    </footer>
+    <div id="storyModal" class="story-modal">
+      <div class="story-modal-content">
+        <span id="closeStoryModal" class="modal-close">&times;</span>
+        <h2 id="modalStoryTitle"></h2>
+        <p id="modalStoryIdentity"></p>
+        <ul id="modalStoryTimeline"></ul>
+        <p id="modalStoryUniqueness"></p>
+        <p id="modalStoryNarrative"></p>
+      </div>
+    </div>
+
+    <!-- single audio element used for ambient playback -->
+    <audio id="soundscape" preload="auto"></audio>
+
+    <script src="script.js"></script>
+  </body>
+</html>
