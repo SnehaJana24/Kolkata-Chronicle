@@ -3,7 +3,7 @@ Kolkata Chronicle 🚇✨
 Explore Kolkata across different eras!
 The Kolkata Chronicle is an interactive web experience that lets users visually travel between the past and present versions of iconic landmarks while enjoying authentic old Kolkata sounds.
 
-Created by Sneha Jana & Anlkita Roy
+Created by Sneha Jana & Ankita Roy
 
 🔮 Features
 🕰️ Visual transformation: Old vs Modern Kolkata
